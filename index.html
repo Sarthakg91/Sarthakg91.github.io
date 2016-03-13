@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My World - Sarthak</title>
+    <meta name="description" content="Sarthak Ghosh, Master Student in HCI, Georgia Tech" />
+    <meta name="keywords" content="HCI, UX, Georgia Tech, Internship, Portfolio" />
+    <meta name="author" content=" Sarthak Ghosh, built on a free UI template -Landio" />
+<!--     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicon/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="img/favicon/favicon-16x16.png" sizes="16x16"> -->
+<!--     <link rel="manifest" href="img/favicon/manifest.json">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico"> -->
+<!--     <meta name="msapplication-TileColor" content="#663fb5">
+    <meta name="msapplication-TileImage" content="img/favicon/mstile-144x144.png">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml"> -->
+    <meta name="theme-color" content="#663fb5">
+    <link rel="stylesheet" href="css/landio.css">
+  </head>
+
+  <body>
+
+
+    <!-- Navigation bar-->
+    <nav class="navbar    navbar-fixed-top" style="padding-top: 1.5em;">
+      <div class="container" z-index="100">
+<!--         <a class="navbar-brand" href="#">
+          <span class="icon-logo"></span>
+          <span class="sr-only"></span>
+        </a> -->
+        <a class="navbar-toggler hidden-md-up pull-right" data-toggle="collapse" href="#collapsingNavbar" aria-expanded="false" aria-controls="collapsingNavbar">
+        &#9776;
+      </a>
+        <a class="navbar-toggler navbar-toggler-custom hidden-md-up pull-right" data-toggle="collapse" href="#collapsingMobileUser" aria-expanded="false" aria-controls="collapsingMobileUser">
+          <span class="icon-user"></span>
+        </a>
+        <div id="collapsingNavbar" class="collapse navbar-toggleable-custom" role="tabpanel" aria-labelledby="collapsingNavbar" style="margin-bottom:100px;">
+          <ul class="nav navbar-nav pull-right">
+            
+            <li class="nav-item nav-item-toggable ">
+              <a class="nav-link" href="#portfolio">Portfolio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="navbar-divider hidden-sm-down"></li>
+            <li class="nav-item nav-item-toggable">
+              <a class="nav-link scroll-down" href="#about">About Me</a>
+            </li>
+            <li class="navbar-divider hidden-sm-down"></li>
+            <li class="nav-item nav-item-toggable">
+              <a class="nav-link" href="Resume_Sarthak_1.pdf" target="_blank">Resume</a>
+            </li>
+            <li class="navbar-divider hidden-sm-down"></li>
+            <li class="nav-item nav-item-toggable">
+              <a class="nav-link" href="content-page-hobbies.html" >Hobbies</a>
+            </li>
+            <li class="navbar-divider hidden-sm-down"></li>
+             <li class="nav-item nav-item-toggable">
+              <a class="nav-link" href="#bottom" >Contact</a>
+            </li>
+           
+           <!--  <li class="nav-item nav-item-toggable hidden-sm-up">
+              <form class="navbar-form">
+                <input class="form-control navbar-search-input" type="text" placeholder="Type your search &amp; hit Enter&hellip;">
+              </form>
+            </li> -->
+            <li class="navbar-divider hidden-sm-down"></li>
+            
+<!--             <li class="nav-item dropdown nav-dropdown-search hidden-sm-down">
+              <a class="nav-link dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="icon-search"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-search" aria-labelledby="dropdownMenu1">
+                <form class="navbar-form">
+                  <input class="form-control navbar-search-input" type="text" placeholder="Type your search &amp; hit Enter&hellip;">
+                </form>
+              </div>
+            </li> -->
+             <li class="nav-item dropdown hidden-sm-down textselect-off">
+              <a class="nav-link dropdown-toggle nav-dropdown-user" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;">
+                <img src="img/portrait2.jpg" height="40" width="40" alt="Avatar" class="img-circle" > <!-- <span class="icon-caret-down"></span> -->
+              </a>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-user dropdown-menu-animated" aria-labelledby="dropdownMenu2">
+                <div class="media">
+                  <div class="media-left">
+                    <img src="img/portrait.jpg" height="60" width="60" alt="Avatar" class="img-circle">
+                  </div>
+                  <div class="media-body media-middle">
+                    <h5 class="media-heading">Sarthak Ghosh</h5>
+                    <h6>sarthak.ghosh@gatech.edu</h6>
+                  </div>
+                </div>
+<!--                 <a href="#" class="dropdown-item text-uppercase">View posts</a>
+                <a href="#" class="dropdown-item text-uppercase">Manage groups</a>
+                <a href="#" class="dropdown-item text-uppercase">Subscription &amp; billing</a>
+                <a href="#" class="dropdown-item text-uppercase text-muted">Log out</a>
+                <a href="#" class="btn-circle has-gradient pull-right">
+                  <span class="sr-only">Edit</span>
+                  <span class="icon-edit"></span>
+                </a> -->
+              </div> 
+            </li>
+           
+          </ul>
+        </div>
+        <div id="collapsingMobileUser" class="collapse navbar-toggleable-custom dropdown-menu-custom p-x hidden-md-up" role="tabpanel" aria-labelledby="collapsingMobileUser">
+          <div class="media m-t">
+            <div class="media-left">
+              <img src="img/face5.jpg" height="60" width="60" alt="Avatar" class="img-circle">
+            </div>
+            <div class="media-body media-middle">
+              <h5 class="media-heading">Sarthak Ghosh</h5>
+              <h6>sarthak.ghosh@gatech.edu</h6>
+            </div>
+          </div>
+
+<!--           <a href="#" class="dropdown-item text-uppercase">View posts</a>
+          <a href="#" class="dropdown-item text-uppercase">Manage groups</a>
+          <a href="#" class="dropdown-item text-uppercase">Subscription &amp; billing</a>
+          <a href="#" class="dropdown-item text-uppercase text-muted">Log out</a>
+          <a href="#" class="btn-circle has-gradient pull-right m-b">
+            <span class="sr-only">Edit</span>
+            <span class="icon-edit"></span>
+          </a> -->
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- end of navigation bar-->
+
+    <!--the first header class - include the video here-->
+   <!--  <header class="jumbotron bg-inverse text-center center-vertically" role="banner" style=" margin:0;padding:0;width:100%;height:auto;">
+
+        <h3 class="wp wp-1">Build your beautiful UI, the way you want it, with Land.io</h3> -->
+    <section class="section-intro  text-center">
+      <div class="container">
+      </br>
+        <h3 class="wp wp-1 "> For The Love of HCI</h3>
+        <!-- <p class="lead wp wp-2 ">The journey so far...</p> -->
+        <img src="img/TestPic3.png" alt="iPad mock" class="img-responsive wp wp-3">
+      </div>
+    </section>
+        
+        <!-- <a class="btn btn-secondary-outline m-b-md" href="#" role="button"><span class="icon-sketch"></span>Sketch included</a> -->
+<!--         <ul class="list-inline social-share">
+          <li><a class="nav-link" href="#"><span class="icon-twitter"></span> 1024</a></li>
+          <li><a class="nav-link" href="#"><span class="icon-facebook"></span> 562</a></li>
+          <li><a class="nav-link" href="#"><span class="icon-linkedin"></span> 356</a></li>
+        </ul> -->
+
+
+      <!-- <section class="section-video bg-inverse text-center wp wp-7"> -->
+      <!-- <h3 class="sr-only" >Video</h3> -->
+    <!--   <div class="section-video video-container" style=" width: 100%;"> -->
+
+      <!-- <video id="demo_video" class="video-js vjs-default-skin vjs-big-play-centered" controls poster="img/video-poster.jpg" data-setup='{}'z-index="-100"> -->
+<!--       <video id="demo_video" autoplay  class="video-js vjs-fullscreen bg-faded vjs-default-skin vjs-big-play-centered" controls poster="img/videoPoster.png" data-setup='{}' style="background:#ffffff" > -->
+        <!-- <source src="http://vjs.zencdn.net/v/oceans.mp4" type='video/mp4'> -->
+        <!-- <source src="video/prezi8.mp4" type='video/mp4'> -->
+        <!-- <source src="http://vjs.zencdn.net/v/oceans.webm" type='video/webm'> -->
+     <!--  </video> -->
+    <!-- </section> -->
+      <!-- </div> -->
+
+      <!-- <img src="img/videoPoster.png" alt="Mountain View" style="width:auto;height:auto;"> -->
+   
+    
+
+<!--     </header> -->
+
+    <!-- end of header-->
+    <section class="section-intro text-center">
+      <div class="container"style="margin-bottom: 3em; display:inline-block;">
+        <h3 class="wp wp-1" > <a name="portfolio">Portfolio</a></h3>
+      
+        <!-- <img src="img/mock.png" alt="iPad mock" class="img-responsive wp wp-3"> -->
+      </div>
+    </section>
+   
+
+    <section class="section-news">
+      <div class="container" >
+        <h3 class="sr-only">Portfolio</h3>
+        <div class="bg-inverse">
+          <div class="row">
+            <div class="col-md-6 p-r-0">
+              <a style="font-family:lato;font-weight:400;"href="#">
+              <figure class=" m-b-0 image-effect">
+                <a href="content-page-musiskate.html" >
+                <img src="img/Musiskate.png" alt="Article thumbnail" class="img-responsive" >
+              </a>
+              </figure>
+
+              <a>
+            </div>
+            <div class="col-md-6 p-l-0">
+              <article class="center-block">
+                
+                
+                <h5><a href="content-page-musiskate.html" style="font-weight:200;">MusiSkate: Enhancing the Skateboarding experience <span class="icon-arrow-right"></span></a></h5>
+                <p class="m-b-0">
+                  <a href="content-page-musiskate.html"><span class="label label-default text-uppercase"><span class="icon-tag"></span> Georgia Tech</span></a>
+                  <a href="content-page-musiskate.html" target="_blank"><span class="label label-default text-uppercase"><span class="icon-time"></span> Fall 2015</span></a>
+                </p>
+              </article>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-md-push-6 p-l-0">
+              <figure class=" m-b-0 image-effect">
+                <a href="content-page-fantasy-soccer.html" >
+                <img src="img/accessible2.jpg" alt="Article thumbnail" class="img-responsive">
+              </a>
+              </figure>
+            </div>
+            <div class="col-md-6 col-md-pull-6 p-r-0">
+              <article class="center-block">
+                
+            
+                <h5><a href="content-page-fantasy-soccer.html" style="font-weight:200;">Sonified Fantasy Soccer<span class="icon-arrow-right"></span></a></h5>
+                <p class="m-b-0">
+                  <a href="content-page-fantasy-soccer.html" target="_blank"><span class="label label-default text-uppercase"><span class="icon-tag"></span> Georgia Tech</span></a>
+                  <a href="content-page-fantasy-soccer.html" target="_blank"><span class="label label-default text-uppercase"><span class="icon-time"></span> Fall 2015</span></a>
+                </p>
+              </article>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h3 class="sr-only">News</h3>
+        <div class="bg-inverse">
+          <div class="row">
+            <div class="col-md-6 p-r-0">
+              <a href="content-page-supervision.html">
+              <figure class=" m-b-0 image-effect">
+
+                <img src="img/SuperVisionPic.png" alt="Article thumbnail" class="img-responsive" href="#">
+              </figure>
+              <a>
+            </div>
+            <div class="col-md-6 p-l-0">
+              <article class="center-block">
+                
+                
+                <h5><a href="content-page-supervision.html"  style="font-weight:200;" >SuperVision: Point through walls!<span class="icon-arrow-right"></span></a></h5>
+                <p class="m-b-0">
+                  <a href="content-page-supervision.html" ><span class="label label-default text-uppercase"><span class="icon-tag"></span> Telecom ParisTech</span></a>
+                  <a href="content-page-supervision.html" ><span class="label label-default text-uppercase"><span class="icon-time"></span> Spring 2014</span></a>
+                </p>
+              </article>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-md-push-6 p-l-0">
+              <figure class=" m-b-0 image-effect">
+                <a href="content-page-ringteraction.html" >
+                <img src="img/Ring1.jpg" alt="Article thumbnail" class="img-responsive">
+              </a>
+              </figure>
+            </div>
+            <div class="col-md-6 col-md-pull-6 p-r-0">
+              <article class="center-block">
+                
+            
+                <h5><a href="content-page-ringteraction.html"  style="font-weight:200;">Ringteraction: Thumb-index interaction using a ring<span class="icon-arrow-right"></span></a></h5>
+                <p class="m-b-0">
+                  <a href="content-page-ringteraction.html" ><span class="label label-default text-uppercase"><span class="icon-tag"></span> NUS</span></a>
+                   <a href="content-page-ringteraction.html" ><span class="label label-default text-uppercase"><span class="icon-time"></span> Fall 2014 </span></a>
+                </p>
+              </article>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+    </section>
+        <section class="section-news">
+
+ <div class="container">
+        <h3 class="sr-only">additional projects</h3>
+        <div class="bg-inverse">
+          <div class="row">
+</br>
+<div class="col-md-4 p-r-1">
+              <a href="content-page-pickAndDrop.html" >
+              <figure class="has-light-mask m-b-0 image-effect">
+                <img src="img/pickAndDrop1.png" alt="Article thumbnail" class="img-responsive" >
+              </figure>
+              <a>
+                <h5 style="text-align:centre;font-weight:200"><a href="content-page-pickAndDrop.html"  style="padding-left:1em">Pick and Drop<span class="icon-arrow-right"></span></a></h5>
+            </div>
+            
+            <div class="col-md-4 p-r-1">
+              <a href="http://sarthakg.in/detailMPI.html" >
+              <figure class="has-light-mask m-b-0 image-effect">
+                <img src="img/MPI.png" alt="Article thumbnail" class="img-responsive" href="#">
+              </figure>
+              <a>
+               <a>
+                <h5 style="text-align:centre;font-weight:200"><a href="http://sarthakg.in/detailMPI.html"  style="padding-left:1em">Press for More!<span class="icon-arrow-right"></span></a></h5>
+
+            </div>
+             
+              
+              <div class="col-md-4 p-l-1">
+              <a href="http://sarthakg.in/projects.html">
+              <figure class="has-light-mask m-b-0 image-effect">
+                <img src="img/miscellaneous.png" alt="Article thumbnail" class="img-responsive " href="#">
+              </figure>
+              <a>
+
+                 <a>
+                <h5 style="text-align:centre;font-weight:200"><a href="http://sarthakg.in/projects.html" style="padding-left:1em">Miscellaneous<span class="icon-arrow-right"></span></a></h5>
+            </div>
+           
+
+          </div>
+
+      </div>
+    </section>
+
+
+
+    <section class="section-pricing bg-faded text-center">
+      <div class="container">
+        <h3 ><a name="about">About Me</a></h3>
+        <div class="row p-y-lg">
+          <div class="col-md-4 p-t-md wp wp-5">
+            <div class="card pricing-box">
+              <div class="card-header text-uppercase">
+                Skills
+              </div>
+              <div class="card-block">
+
+                <h4 class="card-text">
+                  <img src="img/skills.jpg" alt="Article thumbnail" class="img-responsive" href="#">
+                                  
+                </h4>
+              </div>
+                <ul class="list-group list-group-flush p-x text-left">
+                <li class="list-group-item">User research and needs analysis</li>
+                <li class="list-group-item">Mobile interaction design</li>  
+                <li class="list-group-item">Wearable interaction design</li>  
+                 <li class="list-group-item">Prototyping</li>                                            
+                <li class="list-group-item">Software development</li>
+
+                <li class="list-group-item">Hardware hacking</li>                
+                              
+              </ul>
+              
+            </div>
+          </div>
+          <div class="col-md-4 stacking-top">
+            <div class="card pricing-box pricing-best p-x-0">
+              <div class="card-header text-uppercase">
+                Aspirations
+              </div>
+              <div class="card-block">
+                <p class="card-title">Looking for a summer internship in 2016</p>
+                <h4 class="card-text">
+                 <img src="img/Me.jpg" alt="Article thumbnail" class="img-responsive" href="#">
+                </h4>
+              </div>
+              <ul class="list-group list-group-flush p-x text-left">
+                <li class="list-group-item" style="text-align: justify ">I aspire to contribute to the field of Human Computer Interaction by creating novel interaction paradigms that almost seem magical. Currently I am looking to garner as much experience as possible in the broad fields of </li>
+
+                
+                <li class="list-group-item">Accessible web interaction</li>
+                <li class="list-group-item">Mobile app des & dev</li>
+                <li class="list-group-item">Data analytics in HCI</li>
+              </ul>
+              <a href="Resume_Sarthak.pdf" target="_blank" class="btn btn-primary-outline">Resume</a>
+            </div>
+          </div>
+          <div class="col-md-4 p-t-md wp wp-6">
+            <div class="card pricing-box">
+              <div class="card-header text-uppercase">
+                Talents
+              </div>
+              <div class="card-block">
+                
+                <h4 class="card-text">
+                 
+                 <img src="img/team.jpg" alt="Article thumbnail" class="img-responsive" href="#">
+                </h4>
+              </div>
+              <ul class="list-group list-group-flush p-x text-left">
+                <li class="list-group-item">Handling multi-cultural environments</li>
+                <li class="list-group-item">Rising to the occasion</li>
+                <li class="list-group-item">Effective communication capability</li>
+                <li class="list-group-item">Shouldering responsilibilites</li>
+                <li class="list-group-item">Pushing creative boundaries</li>
+                <li class="list-group-item">Visual thinking</li>
+                
+                
+                
+              </ul>
+            
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <footer class="section-footer bg-inverse" role="contentinfo" >
+      <a name="bottom"></a>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-5">
+            <div class="media">
+              <!-- <div class="media-left">
+                <span class="media-object icon-logo display-1"></span>
+              </div> -->
+              <small class="media-body media-bottom" name="toBottom">
+                &copy; sarthakg.in <br>
+                Sarthak Ghosh<br>
+                Georgia Institute of Technology<br>
+                sarthak.ghosh@gatech.edu<br>
+                sarthakg91@gmail.com<br>
+                </small>
+            </div>
+       
+          </div>
+          <div class="col-md-6 col-lg-7">
+             <div class="container">       
+                <ul class="list-inline social-share">
+          <li><a class="nav-link" href="https://twitter.com/sarthakg91"target="_blank"><span class="icon-twitter"></span> </a></li>
+          <li><a class="nav-link" href="https://www.facebook.com/sarthak.ghosh.14" target="_blank"><span class="icon-facebook"></span> </a></li>
+          <li><a class="nav-link" href="https://www.linkedin.com/in/sarthakghosh" target="_blank"><span class="icon-linkedin"></span> </a></li>
+
+        </ul>
+      </div>
+            <ul class="list-inline m-b-0">
+              <li ><a href="#about">About Me</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="Resume_Sarthak_1.pdf" target="_blank">Resume</a></li>
+              <li><a href="https://github.com/Sarthakg91/" target="_blank">GitHub</a></li>
+              <li><a class="scroll-top" href="#totop">Back to top <span class="icon-caret-up"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="js/landio.min.js"></script>
+  </body>
+</html>
