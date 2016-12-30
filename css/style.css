@@ -1,0 +1,346 @@
+body {
+  background-color : #353839;
+  background-color:#212121;
+  font-family: sans-serif
+
+}
+
+@media all and (min-width: 1900px) {
+    body{
+        font-size: 44px;
+    }
+}
+
+@media all and (max-width: 1900px) and (min-width: 900px) {
+    body{
+        font-size: 24px;
+    }
+
+}
+.legendOrdinal {
+    stroke: #FFFFFF;
+    fill: #FFFFFF;
+    border: 0.2px solid #010101;
+}
+
+.finalViscolLegend {
+
+  padding-top:1em;
+/*  background:
+      linear-gradient(
+      rgba(255, 255, 255, 0.1),
+      rgba(0, 0, 0, 0.7)
+    );*/
+  background: #151515;
+  background: transparent\9;
+}
+.container {
+ /* width: 890px*/
+ width:100%;
+
+}
+
+.graphic {
+overflow-x: hidden;
+}
+
+#sections {
+  position: relative;
+  /*top: 60px;*/
+  z-index: 90;
+  /*padding-bottom: 2em;*/
+}
+
+.step {
+  /*margin-bottom: 100px;*/
+  height:100vh;
+ /* font-family: "TiemposTextWeb-Regular","Georgia";*/
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1.1em;
+  color: #FFFFFF;
+}
+
+.partial-width {
+  width: 40%;
+}
+
+#sections .title {
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #F5F5F5;
+  line-height: 2em;
+}
+
+#sections .vis-text {
+  height:100vh;
+  /*background-color:#2c3646;*/
+  background-color:#212121;
+  color:#F5F5F5;
+}
+
+#extra-space {
+  height: 300px;
+}
+
+.bottom-left-in-section{
+  position: absolute;
+ /* top: 50%; left: 50%;
+  transform: translate(-50%,-50%);*/
+
+  top: 100%; left: 0%;
+  transform: translate(-0%,-100%);
+  width: 90%;
+  height: auto;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 3em;
+  padding-bottom: 4em;
+/*  background:rgba(0,0,0,0.5);*/
+
+}
+
+.centered-in-section{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 80%;
+  height: auto;
+  padding-left: 2em;
+  padding-right: 2em;
+  padding-top: 3em;
+  padding-bottom: 4em;
+/*  background:rgba(0,0,0,0.5);*/
+
+}
+.centered-in-section-sliders{
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 95%;
+  height: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+/*  background:rgba(0,0,0,0.5);*/
+}
+
+.blockquote {
+  background:rgba(0,0,0,0);
+  font-family: Raleway;
+  font-size: 1.25em;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 1.25em;
+}
+
+.text-section {
+  width:100%;
+  /*height:400px;*/
+  /*padding-bottom: 2em;*/
+}
+
+#team-intro {
+  height: 100vh;
+  overflow-x:hidden;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/global.jpg");
+ background-size: cover;
+
+  /*background-image: url("../assets/images/global.jpg");*/
+
+}
+
+#chartTag{
+
+     fill: #FFFFFF;
+    font: 0.6em sans-serif;
+}
+
+.labels {
+    fill: #FFFFFF;
+    font: 1em sans-serif;
+}
+
+#vis-intro {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/waterBubbles.jpg");
+  /*background-image: url("../assets/images/waterBubbles.jpg");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+#vis-slide2 {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/water-rajasthan.jpg");
+  /*background-image: url("../assets/images/water-rajasthan.jpg");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+#vis-slide3 {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/oilOnWater.jpg");
+  /*background-image: url("../assets/images/oilOnWater.jpg");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+#vis-slide4 {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/disparity.png");
+  /*background-image: url("../assets/images/disparity.png");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+
+
+#vis-slide6 {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/stress.jpg");
+  /*background-image: url("../assets/images/pennsylvania-map.jpg");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+
+#vis-slide7 {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/waterFootprint.jpg");
+  /*background-image: url("../assets/images/pennsylvania-map.jpg");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+
+#vis-slide8 {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/waterDrop.jpg");
+  /*background-image: url("../assets/images/pennsylvania-map.jpg");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+
+li {
+  text-align: left;
+  
+}
+
+#vis-slide9 {
+
+  height: 100vh;
+  background:
+      linear-gradient(
+      rgba(0, 0, 0, 0.1),
+      rgba(0, 0, 0, 0.7)
+    ),
+  url("../assets/images/finalVisImage.jpg");
+  /*background-image: url("../assets/images/pennsylvania-map.jpg");*/
+  overflow-x:hidden;
+  background-size: cover;
+
+}
+#vis {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  width: 68%;
+  height: 100vh ;
+}
+
+.final-control-legend {
+
+  width: 30%;
+  height: 400px;
+  float:right;
+}
+#vis .title {
+  font-size:60px;
+  text-anchor: middle;
+}
+
+#vis .sub-title {
+  font-size:80px;
+  text-anchor: middle;
+}
+
+
+
+.highlight {
+  fill: #008080;
+  font-weight: bold;
+}
+
+.cough-arrow {
+  stroke: #000;
+  stroke-width: 4px;
+
+}
+
+#svgContainer {
+  display:block;
+  margin:auto;
+}
+#finalVis * {
+  z-index:1000;
+}
+
+
+#tooltip {
+    font-size: 0.5em;
+}

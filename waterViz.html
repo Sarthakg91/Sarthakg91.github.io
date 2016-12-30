@@ -1,0 +1,676 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Visualizing Water</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="css/slider.css"/>
+  <link href="css/main.css" rel="stylesheet">
+  <link href="js/jquery-ui/jquery-ui.css" rel="stylesheet">
+  <script src="js/buttonHandling.js" charset="utf-8"></script>
+  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" /><link rel='stylesheet' href='//fonts.googleapis.com/css?family=Raleway' type='text/css' />
+</head>
+<body>
+
+<!--container is outermost box, width 80% and height 100%
+  graphic is inside container which has padding-top of 4em.
+  Inside graphic div we have "sections div" and "viz div". Sections div is the left hand side scrolling interface.
+  Viz Div is populated using d3.js.-->
+
+<div class="container">
+  <div class="row" id="outerRow">
+    <div class='graphic'>
+      <div id='sections'>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="team-intro" class="text-section">
+                <div class="bottom-left-in-section blockquote jumbotron">
+                 <h1> Visualizing Water</h1>
+                  <span > Presented by Team Planeteers</span>
+                  <p>Thom Gable, Sarthak Ghosh, Fereshteh Shahmiri, Rohit Varkey Thankachan</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-intro" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span >In our modern way of life, water is something that we take for granted everyday. However...</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-slide2" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span >More than 1.1 billion people still do not have adequate access to safe water and 2.4 billion people are without appropriate sanitation. <!-- Women in Asia and Africa have to walk an average distance of 6 Kms to collect water --></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-slide3" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span >So let's take a step back and see how much water we actually have... <!-- Women in Asia and Africa have to walk an average distance of 6 Kms to collect water --></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                <p>Water makes up about 75% of the surface of the earth. However, 97% of the water on earth is salt water and therefore not easily used.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                <p>This means only 3% of the total water on earth is in the form of freshwater.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                  <h1>Total Freshwater</h1>
+                  <p>Now, let's consider only the total freshwater on earth which is equal to 8.5 quintillion gallons. The scale now changes so that each pixel is equal to 5.1 quadrillion gallons of water.  </p>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                  <h1>Usable Freshwater</h1>
+                  <p>However, not all the freshwater is usable. 65% of the freshwater on earth is in either glacier or permafrost form. </p>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                  <h1></h1>
+                  <p> This leaves us with only 35% of the earth's freshwater available to be used by humans and animals; That is, 1.785 quadrillion gallons of water. </p>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                  <h1>Ideal per Capita Distribution</h1>
+                  <p>Ideally, every person in any continent should have access to an equal amount of water. It's an equal world afterall.
+                  </p>
+                </br>
+                <div>
+                  <h4>Group By</h4>
+                  <button type="button" class="btn btn-primary active" id="group-continent" onclick="groupButtonClickedIdeal(this)">Continents</button>
+                  <button type="button" class="btn btn-primary" id="group-income"onclick="groupButtonClickedIdeal(this)">Income Region</button>
+                  <h4>Display Quantity</h4>
+                  <button type="button" class="btn btn-primary active" id="water-avail" onclick="quantityButtonClickedIdeal(this)">Water Availability</button>
+                  <button type="button" class="btn btn-primary" id="water-use" onclick="quantityButtonClickedIdeal(this)">Water Usage</button>
+                </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                  <h1>Reality per Capita Distribution</h1>
+                  <p>The reality however, is quite skewed. As can be seen here, the per capita water availability is varied both by continent and by average individual income. The per capita water usage is also skewed across both continents and income. </p>
+                </br>
+                <div>
+                  <h4>Group By</h4>
+                  <button type="button" class="btn btn-primary active" id="group-continent-real" onclick="groupButtonClickedReal(this)">Continents</button>
+                  <button type="button" class="btn btn-primary" id="group-income-real"onclick="groupButtonClickedReal(this)">Income Region</button>
+                  <h4>Display Quantity</h4>
+                  <button type="button" class="btn btn-primary active" id="water-avail-real" onclick="quantityButtonClickedReal(this)">Water Availability</button>
+                  <button type="button" class="btn btn-primary" id="water-use-real" onclick="quantityButtonClickedReal(this)">Water Usage</button>
+                </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-slide4" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span> The disparity in water availability and use among people from different regions of the world is striking.  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="vis-text">
+                <div class="centered-in-section">
+                  <h1>Putting things into perspective</h1>
+                  <p> Considering the daily water use in different countries, we can see that 1 person in the USA uses the same amount of water per day as is used by 144 people in the country of Mozambique</p>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-slide6" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span> When about 18% of countries in the world are suffering from medium to extreme water stress, this level of opulence is just shortsightedness. It falls upon each one of us to make the right choice and start saving water every day, every hour.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-slide7" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span> We all know that shorter showers, turning off the tap when brushing our teeth, and flushing the toilet less often can help to conserve water. However, one of the biggest ways that we can conserve water is through our diet because 92% of the water that we use each day is from the food that we eat.  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-5">
+              <div class="vis-text">
+                <div class="centered-in-section-sliders">
+                  <span>Move the sliders on some popular foods to see how much water is required to produce different types of food. <br>Note: the average male needs between 2,000 and 3,000 calories a day while the average female needs between 1,800 and 2,400 calories daily. </span>
+                  <div class="row ">
+                    <p style="float:right;margin-right:1em;">ltr
+                    </p>
+                    <p style="float:right;margin-right:1em;">cal
+                    </p>
+                    <p style="float:right;margin-right:1em;">lbs</p>
+                  </div>
+                  <div class="row ">
+                    <div class="col-lg-3">
+                      <label>Chocolate:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r1" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,1250,4300)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+
+                      <input type="text" min=0 value="4300" style="width:33.33%; float:right" id="text-liter-r1" disabled="true" name="liter">
+                      <input type="text" min=0 value="1250" style="width:33.33%;float:right;" id="text-cal-r1" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%;float:right;" id="text-pound-r1" disabled="true">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Beef:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r2" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,600,3875)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+
+                      <input type="text" min=0 value="3875" style="width:33.33%; float:right;" id="text-liter-r2" disabled="true" name="liter">
+                      <input type="text" min=0 value="600" style="width:33.33%;float:right" id="text-cal-r2" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r2" disabled="true">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Pork:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r3" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,550,1500)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="1500" style="width:33.33%; float:right;" id="text-liter-r3"  name="liter">
+                      <input type="text" min=0 value="550" style="width:33.33%;float:right" id="text-cal-r3"  name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r3" name="pound">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Chicken:</label>
+                    </div>
+                    <div class="col-lg-6">
+                       <input type="range" id="r4" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,500,1100)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="1100" style="width:33.33%; float:right;" id="text-liter-r4" disabled="true" name="liter">
+                      <input type="text" min=0 value="500" style="width:33.33%; float:right" id="text-cal-r4" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r4" disabled="true">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Rice:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r5" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,300,625)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="625" style="width:33.33%; float:right;" id="text-liter-r5" disabled="true" name="liter">
+                      <input type="text" min=0 value="300" style="width:33.33%; float:right" id="text-cal-r5" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r5" disabled="true">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Bread:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r6" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,600,400)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="400" style="width:33.33%; float:right;" id="text-liter-r6" disabled="true" name="liter">
+                      <input type="text" min=0 value="600" style="width:33.33%; float:right;" id="text-cal-r6" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r6" disabled="true">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Apple:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r7" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,120,200)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                     <input type="text" min=0 value="200" style="width:33.33%; float:right;" id="text-liter-r7" disabled="true" name="liter">
+                     <input type="text" min=0 value="120" style="width:33.33%; float:right;" id="text-cal-r7" disabled="true" name="cal">
+                     <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r7" disabled="true">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Potato:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r8" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,175,70)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="70" style="width:33.33%; float:right;" id="text-liter-r8" disabled="true" name="liter">
+                      <input type="text" min=0 value="175" style="width:33.33%; float:right;" id="text-cal-r8" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r8" disabled="true">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Milk:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r9" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,100,250)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="250" style="width:33.33%; float:right;" id="text-liter-r9" disabled="true" name="liter">
+                      <input type="text" min=0 value="100" style="width:33.33%; float:right;" id="text-cal-r9" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r9" disabled="true">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Beer:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r10" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,100,75)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="75" style="width:33.33%; float:right;" id="text-liter-r10" disabled="true" name="liter">
+                      <input type="text" min=0 value="100" style="width:33.33%; float:right;" id="text-cal-r10" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r10" disabled="true">
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Tomato:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r11" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,40,70)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="70" style="width:33.33%; float:right;" id="text-liter-r11" disabled="true" name="liter">
+                      <input type="text" min=0 value="40" style="width:33.33%; float:right;" id="text-cal-r11" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r11" disabled="true" name="pound">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <label>Cabbage:</label>
+                    </div>
+                    <div class="col-lg-6">
+                      <input type="range" id="r12" value="0.5" min="0" max="1" step="0.1" oninput="updateTotal(this,60,250)" onchange="init_p()">
+                    </div>
+                    <div class="col-lg-3">
+                      <input type="text" min=0 value="250" style="width:33.33%; float:right;" id="text-liter-r12" disabled="true" name="liter">
+                      <input type="text" min=0 value="60" style="width:33.33%; float:right;" id="text-cal-r12" disabled="true" name="cal">
+                      <input type="text" min=0 value="0.5" style="width:33.33%; float:right;" id="text-pound-r12"  name="pound">
+                    </div>
+                  </div>
+                   <div class= row>
+                    <div class="col-lg-12">
+                      <input type="text" min=0 value="6" style="width:7.2%;float:right;" id="text-liter-total" disabled="true">
+                      <input type="text" min=0 value="4395" style="width:7.2%;float:right;" id="text-cal-total" disabled="true">
+                      <input type="text" min=0 value="12715" style="width:7.2%; float:right;" id="text-pound-total" disabled="true">
+                      <label style="float:right;">Total:</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-slide8" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span>The ability to change your water use is in your hands and should not be taken lightly. The inequality of water distribution around the globe is extreme and can be helped by trying to conserve water in your own life so others may have access to it.<br><br>To see a more extensive view of the water distribution and water use across the globe grouped and filtered by different variables scroll down. Explore this visualization to gain a better understanding of our global water and its use.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-9">
+              <div id="finalVis" style="z-index:2000">
+                <svg id="finalContainer">
+                </svg>
+              </div>
+            </div>
+            <div class="col-lg-3 finalViscolLegend">
+              <div class="row">
+                <div class="col-lg-3">
+                  <p>Group:</p>
+                </div>
+                <div class="col-lg-9 dropdown">
+                    <div class="btn-group" id="group-by-div"  style="width:90%;">
+                      <button type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" id="group-by">
+                        <span class="selection">Continent</span><span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" id="group-ul">
+                        <li data-value="Continent"><a href="#" onclick="return false;" id="group-continent" >Continent</a></li>
+                        <li data-value="Income Group"><a href="#" onclick="return false;" id="group-income" >Income Region</a></li>
+                        <li data-value="Stress Group"><a href="#" onclick="return false;"id="group-stress" >Water Stress</a></li>
+                        <li data-value="Safe Group"><a href="#" onclick="return false;" id="group-access" >Access to Safe Water</a></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+            </br>
+              <div class="row">
+                <div class="col-lg-3" >
+                  <p>Color:</p>
+                </div>
+                <div class="col-lg-9 dropdown" >
+                    <div class="btn-group" id="color-by-div" style="width:90%;">
+                      <button type="button " class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" id="group-by" >
+                        <span class="selection">Continent</span><span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" id="color-ul">
+                        <li data-value="Continent"><a href="#" onclick="return false;"  id="color-continent">Continent</a></li>
+                        <li data-value="Income Group"><a href="#"  onclick="return false;"id="color-income">Income Region</a></li>
+                        <li data-value="Stress Group"><a href="#"  onclick="return false;"id="color-stress">Water Stress</a></li>
+                        <li data-value="Safe Group"><a href="#"  onclick="return false;"id="color-access">Access to Safe Water</a></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-lg-3">
+                  <p>Display:</p>
+                </div>
+                <div class="col-lg-9 dropdown">
+                    <div class="btn-group" id="display-div" style="width:90%;">
+                      <button type="button" class="btn btn-primary btn-block dropdown-toggle" data-toggle="dropdown" id="display">
+                        <span class="selection">Availability</span><span class="caret"></span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" id="display-ul">
+                        <li data-value="Availability per capita"><a href="#" onclick="return false;"  id="display-availability">Availability</a></li>
+                        <li data-value="Usage per capita"><a href="#"  onclick="return false;"id="display-usage">Usage</a></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+              <div class="container">
+                <div class="row" >
+                  <hr>
+                  <div class="col-lg-12">
+                    <h3>Filters<h3>
+                    <p> Water Usage <p>
+                    <div class="row">
+                      <div class="col-lg-2">
+                         <p id="usageSliderLow" style=" float:right">11</p>
+                      </div>
+                      <div class="col-lg-7" id="usageSlider">
+
+                      </div>
+                      <div class="col-lg-3" >
+                        <p id="usageSliderHigh" style="float:left">9142</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                      <p> Water Availability <p>
+                      <div class="col-lg-2" >
+                        <span id="availSliderLow" style=" float:right">5</span>
+                      </div>
+                      <div class="col-lg-7" id="availSlider">
+
+                      </div>
+                      <div class="col-lg-2">
+                        <span id="availSliderHigh" style=" float:left">516090</span>
+                      </div>
+
+                    </div>
+
+                  <div class="row">
+                    <hr>
+
+                    <div class="col-lg-12">
+                      <svg class="finalVisLegend" id="legendContainer" width="100%" height="300px">
+
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
+        <section class="step">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="vis-slide9" class="text-section">
+                <div class="bottom-left-in-section blockquote">
+                  <span>It is never too late to start. You can have an impact on the world water usage simply by changing small habits. For further details and information, check out the resources below. </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </section>
+
+        <section class="step" style="z-index:10000">
+          <div class="row">
+            <div class="col-lg-12">
+              <div id="resources" class="text-section">
+                <div class="container text-center">
+                  <h1>Resources and References</h1><br>
+                      <div class="row">
+                        <div class="col-lg-4">
+                          <h2>Data Sources</h2>
+                          <ul>
+                            <li><a href="http://www.fao.org/nr/water/aquastat/data/query/index.html?lang=en" target="_blank">FAO. 2016. AQUASTAT Main Database - Food and Agriculture Organization of the United Nations (FAO). Website accessed on[08/12/2016 2:22]</a>
+                            </li>
+                            <li>
+                              <a href="http://www.undp.org/content/undp/en/home/">UN Development Programme</a>
+                            </li>
+                             <li>
+                              <a href="http://data.worldbank.org/" target="_blank">The World Bank</a>
+                            </li>
+                            <li>
+                              <a href="https://ndb.nal.usda.gov/ndb/search/list" target="_blank">USDA Food Composition Databases</a>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="col-lg-4">
+                          <h2>Images</h2>
+                          <ul>
+                          <li><a href="http://d.ibtimes.co.uk/en/full/1396823/water-rajasthan.jpg">
+                          Women in rajasthan
+                          </a>
+                          </li>
+                          <li><a href="http://globalwaterresults.cdp.net/img/temp_sec1.jpg">
+                          Global water
+                          </a>
+                          </li>                                         <li><a href="http://www.partech.co.uk/wp-content/uploads/2014/05/Oil-Sheen-958x459.jpg">
+                          Oil sheen </a>
+                          </li>
+                          <li> <a href="http://cdn.citylab.com/media/img/citylab/2013/10/09/climate_change_water_scarcity_millions_without _fresh_china_arab_middle_east_drou/lead_large.jpg">
+                          Water scarcity
+                          </a>
+
+                          </li>
+                          <li> <a href="http://d279m997dpfwgl.cloudfront.net/wp/2016/06/0621_drought-wri-copy-1000x556.jpg">
+                          Water Stress
+                          </a>
+
+                          </li>
+                          <li> <a href="http://desktopgraphy.com/liquid-footprints-water-footprint-dual-monitor-background/">
+                          Water footprint
+                          </a>
+
+                          </li>
+                          <li> <a href="http://yourshot.nationalgeographic.com/photos/5936544/">
+                          National Geographic
+                          </a>
+
+                        </li>
+                      </ul>
+                        </div>
+                        <div class="col-lg-4">
+                          <h2>Inspirations</h2>
+                            <ul>
+                              <li>
+                                <a href="http://www.angelamorelli.com/water" target="_blank">The Water We Eat</a>
+                              </li>
+                              <li>
+                                <a href="http://voices.nationalgeographic.com/2012/09/25/visualizing-water/" target="_blank">Where Your Water Comes From</a>
+                              </li>
+                              <li><a href="http://www.americangeosciences.org/critical-issues/maps/visualization-water-use-every-state" target="_blank">Visualization of Water use in Every State</a>
+                              </li>
+                              <li>
+                                <a href="http://www.watercalculator.org/q/household/">Water Footprint Calculator
+                              </a>
+                              </li>
+                          </ul>
+
+                        </div>
+                      </div>
+
+
+
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+    </div>
+    <div id='vis'>
+      <svg id="svgContainer">
+      </svg>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$(document).ready(function(){
+    $(".dropdown-toggle").dropdown();
+});
+
+$("#group-ul li a").click(function(){
+
+  console.log("inside group-ul");
+  var value = $(this).closest('li').data('value');
+  console.log(value);
+  changeGroup(value);
+  var selected=$(this).text();
+  // console.log(selected);
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+});
+
+$("#display-ul li a").click(function(){
+
+  console.log("Display ");
+  var value = $(this).closest('li').data('value');
+  console.log(value);
+  changeDisplay(value);
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+});
+
+$("#color-ul li a").click(function(){
+
+  console.log("Inside color by");
+  var value = $(this).closest('li').data('value');
+  console.log(value);
+  changeColor(value);
+  $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
+  $(this).parents(".dropdown").find('.btn').val($(this).data('value'));
+});
+</script>
+<script src="js/jquery-ui/external/jquery/jquery.js"></script>
+<script src="js/jquery-ui/jquery-ui.js"></script>
+<script src="js/d3.js" charset="utf-8"></script>
+<script src="lib/d3-legend.min.js"></script>
+<script src="js/queue.js" charset="utf-8"></script>
+<script src="js/scroller.js" charset="utf-8"></script>
+<script src="js/graphs.js" charset="utf-8"></script>
+<script src="js/helperFunctions.js" charset="utf-8"></script>
+<script src="js/finalVis.js" charset="utf-8"></script>
+<script src="js/sections.js" charset="utf-8"></script>
+<script src="js/buttonHandling.js" charset="utf-8"></script>
+</body>
+</html>
